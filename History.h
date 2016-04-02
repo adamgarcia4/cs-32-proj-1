@@ -1,7 +1,8 @@
 #ifndef HISTORY_H
 #define HISTORY_H
 
-#include "Arena.h"
+#include "globals.h"
+#include <iostream>
 #include <vector>
 using namespace std;
 

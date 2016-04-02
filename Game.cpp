@@ -65,11 +65,16 @@ void Game::play()
 	{
 		m_arena->display();
 		cout << endl;
-		cout << "Move (u/d/l/r//q): ";
+		cout << "Move (u/d/l/r//h/q): ";
 		string action;
 		getline(cin, action);
 		if (action.size() == 0)  // player stands
 			p->stand();
+		else if (action[0] == 'h')
+		{
+			m_arena->history().display();
+			continue;
+		}
 		else
 		{
 			switch (action[0])
@@ -90,4 +95,5 @@ void Game::play()
 		m_arena->moveRobots();
 	} while (!m_arena->player()->isDead() && m_arena->robotCount() > 0);
 	m_arena->display();
+	system("pause");
 }

@@ -5,8 +5,6 @@
 
 #include "Player.h"
 
-
-
 Player::Player(Arena* ap, int r, int c)
 {
 	if (ap == nullptr)
@@ -52,10 +50,15 @@ void Player::moveOrAttack(int dir)
 	m_age++;
 	int r = m_row;
 	int c = m_col;
+	int old_r = m_row;
+	int old_c = m_col;
 	if (m_arena->determineNewPosition(r, c, dir))
 	{
 		if (m_arena->nRobotsAt(r, c) > 0)
-			m_arena->attackRobotAt(r, c, dir);
+		{
+			if (m_arena->attackRobotAt(r, c, dir)) //if attack and killed, then record.  Returns true if robot is killed.m_arena->attackRobotAt(r, c, dir)
+				m_arena->history().record(old_r, old_c);
+		}
 		else
 		{
 			m_row = r;

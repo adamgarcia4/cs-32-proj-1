@@ -4,7 +4,7 @@
 
 #include "Arena.h"
 
-Arena::Arena(int nRows, int nCols)
+Arena::Arena(int nRows, int nCols):m_History(nRows,nCols)
 {
 	if (nRows <= 0 || nCols <= 0 || nRows > MAXROWS || nCols > MAXCOLS)
 	{
@@ -132,6 +132,12 @@ void Arena::display() const
 	}
 }
 
+History & Arena::history()
+{
+	// TODO: insert return statement here
+	return m_History;
+}
+
 bool Arena::addRobot(int r, int c)
 {
 	// Dynamically allocate a new Robot and add it to the arena
@@ -169,6 +175,8 @@ bool Arena::attackRobotAt(int r, int c, int dir)
 		delete m_robots[k];
 		m_robots[k] = m_robots[m_nRobots - 1];
 		m_nRobots--;
+		//cout << "Robot k" << k << "died" << endl;
+		//system("pause");
 		return true;
 	}
 	return false;
