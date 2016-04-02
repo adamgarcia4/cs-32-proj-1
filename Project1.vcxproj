@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClCompile Include="Arena.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="History.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Robot.cpp" />
     <ClCompile Include="main.cpp" />
@@ -126,6 +127,7 @@
     <ClInclude Include="Arena.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="globals.h" />
+    <ClInclude Include="History.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Robot.h" />
   </ItemGroup>
