@@ -15,7 +15,7 @@ int main()
 {
 	// Create a game
 	// Use this instead to create a mini-game:   Game g(3, 4, 2);
-	Game g(5, 5, 2);
+	Game g(6, 6, 2);
 	/*
 	Arena a(3, 3);
 	int cont = 1;

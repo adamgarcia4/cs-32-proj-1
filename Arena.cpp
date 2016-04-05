@@ -59,15 +59,15 @@ int Arena::nRobotsAt(int r, int c) const
 
 bool Arena::determineNewPosition(int& r, int& c, int dir) const
 {
-	switch (dir)
-	{
-	case UP:     if (r <= 1)      return false; else r--; break;
-	case DOWN:   if (r >= rows()) return false; else r++; break;
-	case LEFT:   if (c <= 1)      return false; else c--; break;
-	case RIGHT:  if (c >= cols()) return false; else c++; break;
-	default:     return false;
-	}
-	return true;
+    switch (dir)
+    {
+      case UP:     if (r <= 1)      return false; else r--; break;
+      case DOWN:   if (r >= rows()) return false; else r++; break;
+      case LEFT:   if (c <= 1)      return false; else c--; break;
+      case RIGHT:  if (c >= cols()) return false; else c++; break;
+      default:     return false;
+    }
+    return true;
 }
 
 void Arena::display() const
@@ -164,6 +164,7 @@ bool Arena::attackRobotAt(int r, int c, int dir)
 	// Attack one robot.  Returns true if a robot was attacked and destroyed,
 	// false otherwise (no robot there, or the attack did not destroy the
 	// robot).
+
 	int k = 0;
 	for (; k < m_nRobots; k++)
 	{
@@ -175,8 +176,6 @@ bool Arena::attackRobotAt(int r, int c, int dir)
 		delete m_robots[k];
 		m_robots[k] = m_robots[m_nRobots - 1];
 		m_nRobots--;
-		//cout << "Robot k" << k << "died" << endl;
-		//system("pause");
 		return true;
 	}
 	return false;
